@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #faf6eb;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* margin: 80px; */
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+.intro_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.intro_title > h1 {
+  font-size: 96px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.intro > img {
+  position: absolute;
+  bottom: 30px;
+}
+
+.title_container {
+  width: 75%;
+  text-align: center;
+  position: relative;
+}
+
+.title__img {
+  width: 200px;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+
+.title {
+  font-size: 96px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.card_container {
+  display: grid;
+  place-items: center;
+  margin: 0 10%;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  align-items: center;
+}
+
+.card__item {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 1rem;
+  height: 400px;
+  background-color: #ffdd92;
+  padding: 1rem;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 10%;
+  position: relative;
+}
+
+.card__item > img[alt="Flower"] {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+}
+
+.card__item-section > #wishes {
+  line-height: 126%;
+  text-align: justify;
+}
+
+.card__item-avatar {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.card__item-avatar > img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.card_navigate {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card_navigate:hover {
+  scale: 1.2;
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+}
