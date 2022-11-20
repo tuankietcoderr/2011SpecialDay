@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,900&display=swap");
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -26,7 +30,11 @@ body {
 
 main {
   /* display: flex; */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   -ms-scroll-snap-type: y mandatory;
   scroll-snap-type: y mandatory;
@@ -43,8 +51,15 @@ main {
 }
 
 .intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   position: relative;
 }
@@ -59,16 +74,43 @@ main {
 .intro > a {
   position: absolute;
   bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .intro > a > img {
   width: 50px;
   margin: 0 auto;
+  -webkit-animation: arrow_float infinite 1.5s linear;
   animation: arrow_float infinite 1.5s linear;
   cursor: pointer;
+}
+
+@-webkit-keyframes arrow_float {
+  0% {
+    translate: 0;
+  }
+
+  25% {
+    translate: 0 -5px;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+
+  75% {
+    translate: 0 10px;
+  }
+
+  100% {
+    translate: 0 5px;
+  }
 }
 
 @keyframes arrow_float {
@@ -115,30 +157,40 @@ main {
 .intro > center > img {
   width: 300px;
   height: auto;
+  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #000;
 }
 
 .card_container {
+  display: -ms-grid;
   display: grid;
   place-items: center;
 }
 
 .card {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 20% 60% 20%;
   grid-template-columns: 20% 60% 20%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .card__item {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 70% 1rem 30%;
   grid-template-columns: 70% 30%;
   gap: 1rem;
   height: 400px;
   background-color: #ffdd92;
   padding: 1rem;
   border-radius: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 10%;
   position: relative;
@@ -166,26 +218,36 @@ main {
   rotate: 30deg;
   visibility: hidden;
   opacity: 0;
+  -webkit-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
   transition: all 0.6s ease;
 }
 
 .card__item-section {
   overflow: hidden;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
 .card__item-section > #wishes {
   line-height: 126%;
   text-align: justify;
-  -webkit-line-clamp: 14;
+  -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
 }
 
 .card__item-avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
   flex-direction: column-reverse;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -194,17 +256,23 @@ main {
   height: 120px;
   border-radius: 10px;
   border: 2px solid #000;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
 .card_navigate {
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
 .center {
+  display: -ms-grid;
   display: grid;
   place-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -230,6 +298,8 @@ main {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -247,7 +317,9 @@ main {
 }
 
 #modal > .modal_content > .modal__item {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: auto 1rem auto;
   grid-template-columns: auto auto;
   gap: 1rem;
 }
@@ -265,6 +337,7 @@ main {
   height: 100px;
   border: 2px solid #000;
   border-radius: 10px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -285,6 +358,8 @@ blockquote::before {
 
 .animate {
   opacity: 0;
+  -webkit-transition: 1s all ease;
+  -o-transition: 1s all ease;
   transition: 1s all ease;
 }
 
@@ -312,11 +387,16 @@ blockquote::before {
   }
 
   .card {
+    -ms-grid-columns: 10% 80% 10%;
     grid-template-columns: 10% 80% 10%;
   }
 
   .card__item {
     margin: 0;
+  }
+
+  .card_navigate {
+    width: 30px;
   }
 
   .card_navigate:hover {
@@ -326,12 +406,14 @@ blockquote::before {
 
 @media (max-width: 1023px) {
   .card__item {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
   .card__item-avatar {
     display: none !important;
   }
   .modal__item {
+    -ms-grid-columns: 1fr !important;
     grid-template-columns: 1fr !important;
   }
 }

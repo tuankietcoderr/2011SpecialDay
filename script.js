@@ -16,12 +16,16 @@ const data = [
     name: "Duy Thịnh",
     ava: "static/Thinh.jpg",
     wishes: `"Em xin chào anh chị,
+
+    Một năm trước khi em còn chưa định hình được bản thân, anh chị đã cho em một cơ hội được học tập, được ôn lại, và được rèn luyện bản thân mình nhiều hơn. Tuy đã bỏ lỡ một thời gian dài, tuy nhiên em rất cảm ơn an chị đã cho em một cơ hội nữa để có thể vận dụng những điều mà anh chị truyền dạy cho chúng em. Cảm ơn anh chị đã tổ chức Trainee Program, cảm ơn anh chị đã tạo cho chúng em cơ hội để chúng em có thể hoàn thiện bản thân mình như ngày nay. Ngoài Trainee, em rất cảm ơn anh chị đã cùng tụi em chia sẽ niềm vui, nỗi buồn, tâm sự mỗi khi em ngủ hong được điều đó làm em rất rất là thân thuộc luôn.
     
-        Một năm trước khi em còn chưa định hình được bản thân, anh chị đã cho em một cơ hội được học tập, được ôn lại, và được rèn luyện bản thân mình nhiều hơn. Tuy đã bỏ lỡ một thời gian dài, tuy nhiên em rất cảm ơn an chị đã cho em một cơ hội nữa để có thể vận dụng những điều mà anh chị truyền dạy cho chúng em. Cảm ơn anh chị đã tổ chức Trainee Program, cảm ơn anh chị đã tạo cho chúng em cơ hội để chúng em có thể hoàn thiện bản thân mình như ngày nay. Ngoài Trainee, em rất cảm ơn anh chị đã cùng tụi em chia sẽ niềm vui, nỗi buồn, tâm sự mỗi khi em ngủ hong được điều đó làm em rất rất là thân thuộc luôn.
-        
-        Có những người thầy đứng trên bục giảng, còn đối với em anh chị là những người thầy sau màn ảnh nhỏ của chúng em. Hôm nay nhân ngày 20/11, em xin kính chúc anh chị thật nhiều sức khoẻ, thật thành công và luôn luôn vui vẻ.
-        
-        Em hong dám hứa sẽ thật thành công và kế thừa được toàn bộ những gì anh chị đã truyền đạt. Nhưng em hứa sẽ cố gắng hết mình để truyền đạt được tinh thần của anh chị đến thế hệ sau và sẽ xây"`,
+    Có những người thầy đứng trên bục giảng, còn đối với em anh chị là những người thầy sau màn ảnh nhỏ của chúng em. Hôm nay nhân ngày 20/11, em xin kính chúc anh chị thật nhiều sức khoẻ, thật thành công và luôn luôn vui vẻ.
+    
+    Em hong dám hứa sẽ thật thành công và kế thừa được toàn bộ những gì anh chị đã truyền đạt. Nhưng em hứa sẽ cố gắng hết mình để truyền đạt được tinh thần của anh chị đến thế hệ sau và sẽ xây dựng Đoàn khoa theo hướng tốt hơn.
+    
+    Em xin chúc anh chị tất cả và cảm ơn anh chị rất nhiều!
+    
+    Duy Thịnh."`,
   },
   {
     id: 3,
@@ -196,38 +200,40 @@ function RenderCard() {
   avatar.src =
     ava ||
     "https://cornerstoneia.com/wp-content/uploads/2019/08/avatar-placeholder.jpeg";
-  console.log(ava);
   if (wishes.offsetHeight > card.style.height) {
     cardSection.style.height = card.offsetHeight - 50 + "px";
   }
 
   card.onclick = function () {
-    console.log(name, wish, ava);
     ShowModal(name, wish, ava);
   };
 }
 
-function CardAction() {
-  const previous = document.getElementById("previous");
-  const next = document.getElementById("next");
-  previous.onclick = function () {
-    index -= 1;
-    if (index < 0) {
-      index = data.length - 1;
-    }
-    RenderCard();
-  };
+const previous = document.getElementById("previous");
+const next = document.getElementById("next");
 
-  next.onclick = function () {
-    index += 1;
-    if (index > data.length - 1) {
-      index = 0;
-    }
-    RenderCard();
-  };
+next.onclick = function () {
+  nextWish();
+};
+previous.onclick = function () {
+  previousWish();
+};
+
+function nextWish() {
+  index += 1;
+  if (index > data.length - 1) {
+    index = 0;
+  }
+  RenderCard();
 }
 
-CardAction();
+function previousWish() {
+  index -= 1;
+  if (index < 0) {
+    index = data.length - 1;
+  }
+  RenderCard();
+}
 
 function ShowModal(fullName, wishes, avatar) {
   const modal = document.getElementById("modal");
@@ -271,18 +277,10 @@ gestureZone.addEventListener(
 
 function handleGesture() {
   if (touchendX < touchstartX) {
-    index += 1;
-    if (index > data.length - 1) {
-      index = 0;
-    }
-    RenderCard();
+    nextWish();
   }
 
   if (touchendX > touchstartX) {
-    index -= 1;
-    if (index < 0) {
-      index = data.length - 1;
-    }
-    RenderCard();
+    previousWish();
   }
 }
